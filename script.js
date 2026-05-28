@@ -6,7 +6,7 @@
 // Paste your Paystack TEST public key here (from dashboard.paystack.com → Settings → API Keys).
 // Until a real pk_test_ key is set, checkout falls back to a simulated success so the
 // rest of the flow (summary modal, cart reset) can still be demonstrated.
-const PAYSTACK_PUBLIC_KEY = "pk_test_cbdae07ddac2e2a565ffa95e1260a91cbea8fc00";
+const PAYSTACK_PUBLIC_KEY = "pk_test_REPLACE_WITH_YOUR_KEY";
 const PAYSTACK_CURRENCY = "GHS";
 
 const cart = {};
