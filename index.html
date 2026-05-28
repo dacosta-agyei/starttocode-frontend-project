@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The E-Millenial Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============== HEADER / NAV ============== -->
+  <header class="site-header">
+    <nav class="container nav">
+      <a href="#intro" class="logo">EMS</a>
+      <ul class="nav-links">
+        <li><a href="#intro">Intro</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#shop">Shop</a></li>
+      </ul>
+      <button id="cartBtn" class="cart-btn" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"></path>
+        </svg>
+        <span id="cartCount">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ============== INTRO ============== -->
+  <section id="intro" class="intro">
+    <div class="container intro-grid">
+      <div class="intro-copy">
+        <h1>THE E-<br />MILLENIAL<br />STORE</h1>
+        <a href="#shop" class="btn btn-primary shop-now">SHOP NOW</a>
+      </div>
+      <div class="intro-art" aria-hidden="true">
+        <div class="blob"></div>
+        <div class="emoji e1">📱</div>
+        <div class="emoji e2">🎧</div>
+        <div class="emoji e3">⌚</div>
+        <div class="emoji e4">💻</div>
+        <div class="emoji e5">🎮</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== ABOUT ============== -->
+  <section id="about" class="about">
+    <div class="container">
+      <p>
+        E-Millenial Store is a hypothetical online store for gadgets we believe every
+        'Millenial' or 'Gen-Z' should have today. We've got mobile phones, laptops,
+        smartwatches and other gadgets. Explore all our gadgets and choose the ones
+        that suit you.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============== SHOP ============== -->
+  <section id="shop" class="shop">
+    <div class="container">
+      <h2 class="section-title">OUR GADGETS</h2>
+      <div id="productGrid" class="product-grid">
+        <!-- Products injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="#intro" class="logo logo-footer">EMS</a>
+      <p>Designed and Crafted by <strong>Dacosta Agyei</strong></p>
+    </div>
+  </footer>
+
+  <!-- ============== CART MODAL ============== -->
+  <div id="cartModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-cart></div>
+    <div class="modal-dialog cart-dialog" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+      <button class="modal-close" data-close-cart aria-label="Close">&times;</button>
+      <h2 id="cartTitle" class="cart-title">Your Cart</h2>
+
+      <!-- Items -->
+      <div class="cart-items-wrap">
+        <table class="cart-table">
+          <thead>
+            <tr>
+              <th>S/N</th>
+              <th>Item</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="cartItemsBody">
+            <!-- rows injected by JS -->
+          </tbody>
+        </table>
+        <p id="cartEmptyMsg" class="cart-empty">Your cart is empty. Add some gadgets!</p>
+      </div>
+
+      <!-- User Details -->
+      <form id="userForm" class="user-form" novalidate>
+        <div class="form-row">
+          <input type="text" id="fullName" name="fullName" placeholder="Your Name" autocomplete="name" required />
+          <span class="error" data-error-for="fullName"></span>
+        </div>
+        <div class="form-row">
+          <input type="email" id="email" name="email" placeholder="Your Email" autocomplete="email" required />
+          <span class="error" data-error-for="email"></span>
+        </div>
+        <div class="form-row">
+          <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" autocomplete="tel" required />
+          <span class="error" data-error-for="phone"></span>
+        </div>
+      </form>
+
+      <!-- Total -->
+      <div class="cart-total">
+        <p class="total-label">Total Amount to be Paid</p>
+        <p class="total-value">&#8373;<span id="cartTotal">0</span></p>
+      </div>
+
+      <!-- Actions -->
+      <div class="cart-actions">
+        <button type="button" class="btn btn-ghost" data-close-cart>Continue Shopping</button>
+        <button type="button" id="checkoutBtn" class="btn btn-primary">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== SUMMARY MODAL ============== -->
+  <div id="summaryModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-dialog summary-dialog" role="dialog" aria-modal="true" aria-labelledby="summaryTitle">
+      <h3 id="summaryTitle" class="summary-greeting">
+        Thank You, <span id="summaryName" class="accent">friend</span>, Your Order Has been Received
+      </h3>
+      <div class="check-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="86" height="86">
+          <circle cx="32" cy="32" r="29" fill="none" stroke="#111" stroke-width="3" />
+          <path d="M19 33 L29 43 L46 24" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+      <h4 class="summary-heading">Summary</h4>
+      <table class="summary-table">
+        <thead>
+          <tr><th>S/N</th><th>Item</th><th>Quantity</th></tr>
+        </thead>
+        <tbody id="summaryBody"></tbody>
+      </table>
+      <div class="summary-actions">
+        <button type="button" id="summaryOkBtn" class="btn btn-primary">Ok</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Paystack -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script src="products.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
