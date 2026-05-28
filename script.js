@@ -300,3 +300,43 @@ summaryOkBtn.addEventListener("click", handleSummaryDismiss);
 // ============================================================
 renderProducts();
 updateCartBadge();
+
+// ============================================================
+// Demo triggers (used for documentation screenshots)
+// Visit the page with a hash like #demo=cart to auto-open a state.
+// Harmless when the hash is absent.
+// ============================================================
+function runDemoFromHash() {
+  const hash = (window.location.hash || "").toLowerCase();
+  if (!hash.startsWith("#demo=")) return;
+
+  const mode = hash.replace("#demo=", "");
+  const click = sel => document.querySelector(sel)?.click();
+
+  if (mode === "cart") {
+    click('button.cart-toggle[data-product-id="apple-watch"]');
+    click('button.cart-toggle[data-product-id="macbook-air"]');
+    cartBtn.click();
+  } else if (mode === "checkout") {
+    click('button.cart-toggle[data-product-id="apple-watch"]');
+    click('button.cart-toggle[data-product-id="macbook-air"]');
+    cartBtn.click();
+    userForm.elements.fullName.value = "Dacosta Agyei";
+    userForm.elements.email.value = "dacosta@example.com";
+    userForm.elements.phone.value = "+233244000000";
+  } else if (mode === "paystack") {
+    click('button.cart-toggle[data-product-id="apple-watch"]');
+    cartBtn.click();
+    userForm.elements.fullName.value = "Dacosta Agyei";
+    userForm.elements.email.value = "dacosta@example.com";
+    userForm.elements.phone.value = "+233244000000";
+    checkoutBtn.click();
+  } else if (mode === "summary") {
+    showSummary(
+      { fullName: "Dacosta" },
+      [{ id: "apple-watch", name: "APPLE WATCH", qty: 1 }],
+      "DEMO"
+    );
+  }
+}
+runDemoFromHash();
