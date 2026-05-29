@@ -8,22 +8,22 @@ A simple, responsive e-commerce website for gadgets with a working shopping
 cart and **Paystack** checkout (Test Mode). Built end-to-end with vanilla
 HTML, CSS, and JavaScript — no frameworks, no build step.
 
-## Live demo
-
-Just open it in the browser.
+![EMS landing page](screenshots/landing.png)
 
 ---
 
-## Screenshots
+## Live demo
 
-### Landing page
-![EMS landing page](screenshots/landing.png)
+```bash
+# from the project root
+python3 -m http.server 5173
+# then open http://localhost:5173
+```
 
-### Shopping cart
-![Shopping cart](screenshots/cart.png)
-
-### Checkout — form filled, ready for Paystack
-![Checkout](screenshots/checkout.png)
+> ⚠️ **Open it through a local server, not by double-clicking `index.html`.**
+> Browsers block sibling files (`styles.css`, `script.js`, `products.js`) when
+> served from `file://`, which is the most common cause of "the CSS isn't
+> loading" while developing locally.
 
 ---
 
