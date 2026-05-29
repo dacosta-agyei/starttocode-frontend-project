@@ -25,6 +25,9 @@ Just open it in the browser.
 ### Checkout — form filled, ready for Paystack
 ![Checkout](screenshots/checkout.png)
 
+### Paystack modal
+![Paystack](screenshots/paystack.png)
+
 ---
 
 ## Features
